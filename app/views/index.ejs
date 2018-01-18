@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1 class="page-heading">DASHBOARD</h1>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="the-box no-border bg-primary tiles-information">
+					<i class="fa fa-shopping-cart icon-bg"></i>
+					<div class="tiles-inner text-center">
+						<p>TOTAL MEMBERS</p>
+						<h1 class="bolded">521</h1>
+						<div class="progress no-rounded progress-xs">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" class="progress-bar progress-bar-primary" role="progressbar" style="width: 80%"></div><!-- /.progress-bar .progress-bar-primary -->
+						</div><!-- /.progress .no-rounded -->
+					</div><!-- /.tiles-inner -->
+				</div><!-- /.the-box no-border -->
+			</div><!-- /.col-sm-3 -->
+			<div class="col-sm-3">
+				<div class="the-box no-border bg-danger tiles-information">
+					<i class="fa fa-comments icon-bg"></i>
+					<div class="tiles-inner text-center">
+						<p>TOTAL CHALLENGES</p>
+						<h1 class="bolded">124</h1>
+						<div class="progress no-rounded progress-xs">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" class="progress-bar progress-bar-danger" role="progressbar" style="width: 80%"></div><!-- /.progress-bar .progress-bar-danger -->
+						</div><!-- /.progress .no-rounded -->
+					</div><!-- /.tiles-inner -->
+				</div><!-- /.the-box no-border -->
+			</div><!-- /.col-sm-3 -->
+			<div class="col-sm-3">
+				<div class="the-box no-border bg-warning tiles-information">
+					<i class="fa fa-comments icon-bg"></i>
+					<div class="tiles-inner text-center">
+						<p>TOTAL DEPARTMENTS</p>
+						<h1 class="bolded">124</h1>
+						<div class="progress no-rounded progress-xs">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" class="progress-bar progress-bar-danger" role="progressbar" style="width: 80%"></div><!-- /.progress-bar .progress-bar-danger -->
+						</div><!-- /.progress .no-rounded -->
+					</div><!-- /.tiles-inner -->
+				</div><!-- /.the-box no-border -->
+			</div><!-- /.col-sm-3 -->
+			<div class="col-sm-3">
+				<div class="the-box no-border bg-success tiles-information">
+					<i class="fa fa-comments icon-bg"></i>
+					<div class="tiles-inner text-center">
+						<p>TOTAL TEAMS</p>
+						<h1 class="bolded">124</h1>
+						<div class="progress no-rounded progress-xs">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" class="progress-bar progress-bar-danger" role="progressbar" style="width: 80%"></div><!-- /.progress-bar .progress-bar-danger -->
+						</div><!-- /.progress .no-rounded -->
+					</div><!-- /.tiles-inner -->
+				</div><!-- /.the-box no-border -->
+			</div><!-- /.col-sm-3 -->
+		</div><!-- /.row -->
+		<!-- END SITE INFORMATIONS -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel with-nav-tabs panel-success">
+					<div class="panel-heading">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a data-toggle="tab" href="#wizard-1-step1"><i class="fa fa-clock-o"></i> Brio Score Charts</a>
+							</li>
+						</ul>
+					</div>
+					<div class="collapse in" id="panel-collapse-1">
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="wizard-1-step1">
+								<div class="panel-body" id="container">
+									
+								</div><!-- /.panel-body -->
+							</div>
+							<div class="tab-pane fade" id="wizard-1-step2">
+								<div class="panel-body" id="container1">
+									
+								</div><!-- /.panel-body -->
+							</div>
+							<div class="tab-pane fade" id="wizard-1-step3">
+								<div class="panel-body" id="container2">
+									
+								</div><!-- /.panel-body -->
+							</div>
+						</div><!-- /.tab-content -->
+					</div><!-- /.collapse in -->
+				</div><!-- /.panel .panel-success -->
+			</div>
+		</div>
+	</div><!-- /.container-fluid -->
+	<script src="https://code.highcharts.com/highcharts.js">
+	</script> 
+	<script src="https://code.highcharts.com/modules/exporting.js">
+	</script> 
+	<script>
+	$(document).ready(function() {
+	Highcharts.chart('container', {
+	chart: {
+	type: 'line'
+	},
+	title: {
+	text: 'Brio Score & Factor Trends'
+	},
+	subtitle: {
+	text: ''
+	},
+	xAxis: {
+	categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	},
+	yAxis: {
+	title: {
+	text: ''
+	}
+	},
+	plotOptions: {
+	line: {
+	dataLabels: {
+	enabled: true
+	},
+	enableMouseTracking: false
+	}
+	},
+	series: [{
+	name: 'A',
+	data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+	}, {
+	name: 'B',
+	data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+	}]
+	});
+
+	var first_graph_width = $('#container .highcharts-container').width();
+	
+	Highcharts.chart('container1', {
+	chart: {
+	type: 'line'
+	},
+	title: {
+	text: 'Brio Score & Factor Trends'
+	},
+	subtitle: {
+	text: ''
+	},
+	xAxis: {
+	categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	},
+	yAxis: {
+	title: {
+	text: ''
+	}
+	},
+	plotOptions: {
+	line: {
+	dataLabels: {
+	enabled: true
+	},
+	enableMouseTracking: false
+	}
+	},
+	series: [{
+	name: 'A',
+	data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+	}, {
+	name: 'B',
+	data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+	}]
+	});
+	$('#container1 .highcharts-container').css('width',first_graph_width+'px');
+
+	Highcharts.chart('container2', {
+	chart: {
+	type: 'line'
+	},
+	title: {
+	text: 'Brio Score & Factor Trends'
+	},
+	subtitle: {
+	text: ''
+	},
+	xAxis: {
+	categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	},
+	yAxis: {
+	title: {
+	text: ''
+	}
+	},
+	plotOptions: {
+	line: {
+	dataLabels: {
+	enabled: true
+	},
+	enableMouseTracking: false
+	}
+	},
+	series: [{
+	name: 'A',
+	data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+	}, {
+	name: 'B',
+	data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+	}]
+	});
+	});
+	</script>
+</body>
+</html>

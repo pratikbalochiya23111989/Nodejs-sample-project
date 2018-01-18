@@ -1,0 +1,256 @@
+.fix-footer{
+    position: fixed;left: 50%;bottom: 5px;transform: translate(-50%, -50%);margin: 0 auto;color:#000000 !important;font-weight: bold !important;
+}
+.errcolor{
+    color:red;
+}
+.black-color{
+    color:#000000;
+}
+.btn-bgcolor{
+    background-color: #dd1757;
+    border-color: #dd1757;
+    box-shadow: 0 3px 0 #FFF !important;
+}
+
+.tbl_center{
+    text-align: center;
+}
+
+.tbl_pad_left{
+    padding-left: 19px !important;
+}
+
+.green{
+    color:green;
+}
+
+.red{
+    color:red;
+}
+
+select {
+    cursor: pointer !important;
+}
+
+.pull-right{
+    float:right !important;
+    margin-bottom: 20px;
+}
+
+.clear{
+    clear:both;
+}
+
+.textbox{
+    height: 40px !important;
+    border-radius: 4px !important;
+}
+
+.selectbox{
+    height: 40px !important;
+    border-radius: 4px !important;
+}
+
+.frmbtn{
+    height:40px !important;
+    width: 125px !important;
+}
+
+.imgradius{
+    border-radius:50%;
+}
+
+.tbltopimg{
+    padding-top: 28px !important;
+}
+
+.frmbtntopspc{
+    margin-top: 30px !important;
+}
+
+.txtarearadius{
+    border-radius: 4px !important;
+}
+
+.filebtn{
+    padding: 9px 12px !important;
+    border-radius: 4px !important;
+}
+
+.imgminrds{
+    border-radius:4px;
+}
+
+.tbltdtopspc{
+    padding-top: 48px !important;
+}
+
+.tblchleader{
+    float: left;
+    position: absolute;
+    top: 26px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+
+.tblprgrad{
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+.tblprogresstop{
+    padding-top: 35px !important;
+}
+
+.tblprocenter{
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+.white{
+    color:#FFF !important;
+}
+
+#container {
+    height: 400px;
+    margin: 0 auto;
+}
+
+#container1 {
+    height: 400px;
+    margin: 0 auto;
+}
+
+#container2 {
+    height: 400px;
+    margin: 0 auto;
+}
+
+.likeusermodalbody{
+    max-height: 278px;
+    overflow-y: scroll;
+}
+
+ol li:nth-child(2):before{
+    color: #3BAFDA !important;
+    padding: 0 !important;
+}
+
+.topspc{
+    margin-top: 20px !important;
+}
+
+.highcharts-credits{
+    display:none !important;
+}
+
+.alerttopbtnspc{
+    padding: 8px 15px !important;
+}
+
+.alertleftspc{
+    padding-left: 10px !important;
+}
+
+.modaltpbtmspc{
+    margin:15px 0 15px 15px !important;
+}
+
+.dashchart1{
+    border-right: 1px solid #3bafda;min-width: 310px; height: 400px; margin: 0 auto;
+}
+
+.dashchart2{
+    min-width: 310px; height: 400px; margin: 0 auto;
+}
+
+.dashtblcol1{
+    width:20%;
+    font-size: 18px;
+}
+.dashtblcol2{
+    width:20%;
+    font-size: 20px;
+}
+.dashtblcol3{
+    width:20%;
+}
+.dashtblcol4{
+    width:40%;
+}
+.dashtblcol31{
+    width:30%;
+}
+.dashtblcol41{
+    width:30%;
+}
+.tblcelltopbrd{
+    border-top:1px solid #CACFD9 !important;
+}
+.tblrowheight{
+    border:1px solid #CACFD9;height: 60px;
+    cursor: pointer;
+}
+
+.dashtblspc{
+    margin: 10px;
+}
+.errvalidationtext {
+    font-size: 13px;
+    color: #ff5722 !important;
+    padding-top: 10px;
+}
+.help-block {
+    display: none;
+    color: red;
+    font-size: 13px;
+}
+.validationimg {
+    vertical-align: 2px;
+}
+
+.activate{
+    color:#37BC9B !important;
+}
+
+.deactivate{
+    color:#E9563F !important;   
+}
+
+sup{
+    color:red !important;
+    top: -0.3em !important;
+    font-size: 15px !important;
+}
+
+.errSocialText{
+    border:1px dotted red;
+}
+
+.padLeft20{
+    padding-left: 50px !important;
+}
+
+.socialLikeListBody{
+    max-height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.msgformat1
+{
+    font-size: 13px;
+    color: #D8482C;
+}
+.iradio_square-grey
+{
+    margin-left: 4px;
+}
+
+.frmRowSpc{
+    margin-top:13px;
+}

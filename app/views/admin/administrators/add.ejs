@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<!-- Begin page heading -->
+		<h1 class="page-heading">Administrators </h1><!-- End page heading -->
+		<!-- Begin breadcrumb -->
+		<ol class="breadcrumb info">
+			<li>
+				<a href="/admin/dashboard/list"><i class="fa fa-home"></i></a>
+			</li>
+			<li>
+				<a href="/admin/insurance_types/list">View Administrators</a>
+			</li>
+			<li class="active">Add Administrator</li>
+		</ol><!-- End breadcrumb -->
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Begin basic form elements -->
+				<div class="the-box">
+				<form action="/admin/administrators/create" method="post" enctype="multipart/form-data" id="addAdminForm">
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>First Name</label> <input class="form-control textbox" id='firstname' name="firstname" placeholder="" type="text">
+								<p class="help-block errcolor err_fname_area" id="err_fname_area"><img class="validationimg" src="/img/arrow.png"><span id="lblfnameerrmsg"></span></p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Middle Name</label> <input class="form-control textbox" id='middlename' name="middlename" placeholder="" type="text">
+								<p class="help-block errcolor err_mname_area" id="err_mname_area"><img class="validationimg" src="/img/arrow.png"><span id="lblmnameerrmsg"></span></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Last Name</label> <input class="form-control textbox" id='lastname' name="lastname" placeholder="" type="text">
+								<p class="help-block errcolor err_lname_area" id="err_lname_area"><img class="validationimg" src="/img/arrow.png"><span id="lblmnameerrmsg"></span></p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Email</label> <input class="form-control textbox" id='email' name="email" placeholder="" type="text">
+								<p class="help-block errcolor err_email_area" id="err_email_area"><img class="validationimg" src="/img/arrow.png"><span id="lbemailerrmsg"></span></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Password</label> <input class="form-control textbox" id='password' name="password" placeholder="" type="text">
+								<p class="help-block errcolor err_password_area" id="err_password_area"><img class="validationimg" src="/img/arrow.png"><span id="lblpassworderrmsg"></span></p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Email</label> <input class="form-control textbox" id='email' name="email" placeholder="" type="text">
+								<p class="help-block errcolor err_cpassword_area" id="err_cpassword_area"><img class="validationimg" src="/img/arrow.png"><span id="lblcpassworderrmsg"></span></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="col-sm-6" style="margin-top: 19px;">
+							<div class="form-group">
+								<label></label>
+								<button class="btn btn-success active frmbtn" type='button' name="save" onclick="form_validate()">Save</button> <button class="btn btn-danger active frmbtn" onclick="cancel('/admin/insurance_types/list')" type='button'>Cancel</button>
+							</div>
+						</div>
+					</div>
+					<div class='clear'></div>
+				</form><!-- End basic form elements -->
+					</div><!-- /.the-box -->
+				
+			</div><!-- /.col-sm-6 -->
+		</div><!-- /.row -->
+	</div><!-- /.container-fluid -->
+	<script type="text/javascript">
+		var _URL = window.URL;
+		function form_validate() {  
+				var fname_status =lname_status=mname_state= email_state=password_status=cpassword_status=0;
+				var firstname= $('#firstname').val();
+				var middlename=$('#middlename').val();
+				var lastname=$('#lastname').val();
+				var email=$('#email').val();
+				var password=$('#password').val();
+				var cpassword=$('#cpassword').val();
+				fname_status = check_empty_validation(firstname,'err_fname_area','lblfnameerrmsg','Please enter first name.');
+			    lname_status= check_empty_validation(lastname,'err_lname_area','lbllnameerrmsg','Please enter last name.');
+				mname_status=check_empty_validation(middlename,'err_mname_area','lblmnameerrmsg','Please enter middlename.');
+				email_status=check_empty_validation(email,'err_email_area','lblemailerrmsg','Please enter email-id.');
+				password_status=check_empty_validation(password,'err_password_area','lblpasswordarea','Please enter password.');
+				cpassword_status=check_empty_validation(currentpassword,'err_cpassword_area','lblcpasswordarea','Please enter confirm password.');
+				if(title_status==0 || desc_status==0 || status_status==0 || photo_status==0) 
+				{
+					return false;
+				}
+				else
+				{
+					alert("Success");
+					return false;
+					$('#addAdminForm').submit();
+				}
+	        }
+		</script>
+</body>
+</html>

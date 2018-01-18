@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.tbl_left
+		{
+			padding-left: 18px !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<form action="/admin/insurance_types/list" method="post">
+			<input type="hidden" name="btnAction" id="btnAction">
+			<!-- Begin page heading -->
+			<h1 class="page-heading">Insurance Type</h1><!-- End page heading -->
+			<!-- Begin breadcrumb -->
+			<ol class="breadcrumb info">
+				<li>
+					<a href="/admin/dashboard/list"><i class="fa fa-home"></i></a>
+				</li>
+				<li class="active">View Insurance Type</li>
+			</ol><!-- End breadcrumb -->
+
+			<% for(var i in messages) { %>
+				<div class="row" id="msg_display_area">
+					<div class="col-sm-12">
+						<div class="alert alert-danger alert-block fade in alert-dismissable alerttopbtnspc">
+						  	<i class="fa fa-bell"></i> <span class="alertleftspc"><%= messages[i] %></span>
+						</div>
+					</div>
+				</div>
+			<% } %>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="pull-right">
+						<button class="btn btn-primary btn-perspective" id="btn-active" type="submit"> Activate</button> <button class="btn btn-warning btn-perspective" id="btn-inactive" type="submit"> Deactivate</button> <button class="btn btn-success btn-perspective" onclick="window.location.href='/admin/insurance_types/add'" type='button'>Add</button> <button class="btn btn-danger btn-perspective" id="btn-delete" type="submit">Delete</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<!-- Begin basic form elements -->
+					<div class="the-box">
+						<div class="table-responsive">
+							<table class="table table-th-block table-dark" id="state_listing">
+								<thead>
+									<tr>
+										<th class="tbl_center" width='5%'><input name='check_all' type='checkbox' id="check_all"></th>
+										<th width='20%'>Photo</th>
+										<th width='60%'>Title</th>
+										<th width='10%'>Status</th>
+										<th class='tbl_center' width='5%'>Edit</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% for(var i=0; i < insurancetypes.length; i++) { %>
+										<tr>
+											<td class="tbl_center"><input name="iId[]" type='checkbox' value="<%= insurancetypes[i].id %>"></td>
+											<td class='tbl_pad_left'> <img src="<%=insurancetypes[i].photo %>" width="100px" height="100px"><br></td>
+											<td class='tbl_pad_left'> <%= insurancetypes[i].title %></td>
+											
+											<% if(insurancetypes[i].status=='Active'){ %>
+												<td class='tbl_pad_left activate'>Activated</td>
+											<% } else { %>
+												<td class='tbl_pad_left deactivate'>Deactivated</td>
+											<% } %>
+											<td class="tbl_center">
+												<a href='/admin/insurance_types/edit/<%= insurancetypes[i].id %>'><i class="fa fa-edit"></i></a>
+											</td>
+										</tr>
+									<% } %>
+								</tbody>
+							</table>
+						</div><!-- /.table-responsive -->
+					</div><!-- /.the-box -->
+					<!-- End basic form elements -->
+				</div><!-- /.col-sm-6 -->
+			</div><!-- /.row -->
+		</form>
+	</div><!-- /.container-fluid -->
+	<script>
+	$(document).ready(function() {
+	$("#state_listing").dataTable({
+		"bAutoWidth": false,
+		"aaSorting": [],
+		"aoColumns": [
+		{ "bSortable": false },
+		null,
+		null,
+		null,
+		{ "bSortable": false }
+		]
+		});
+	});
+	</script>
+</body>
+</html>

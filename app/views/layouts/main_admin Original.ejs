@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>::: IS Tool :::  </title>
+		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
+	<!-- <link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+	<link href="/vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css"/>
+
+
+	<link href="/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+
+	<link href="/vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>		
+	<link href="/dist/css/style.css" rel="stylesheet" type="text/css"> -->
+		<%- include ../shared/common_css %>
+		<script src="/js/jquery.min.js"></script>
+		<script src="/plugins/datatable/js/jquery.dataTables.min.js"></script>
+		<script src="/plugins/datatable/js/bootstrap.datatable.js"></script>
+	</head>
+ 
+	<body class="tooltips">
+		<div class="wrapper">
+			<!-- BEGIN TOP NAV -->
+			<% if(logintype=='ajax'){ %>
+				<%- body %>
+			<% } 
+			else { %>
+				<div class="top-navbar">
+					<%- include ../shared/top_nav_admin.ejs %>
+				</div>
+				<!-- END TOP NAV -->
+				
+				
+				<!-- BEGIN SIDEBAR LEFT -->
+				<div class="sidebar-left sidebar-nicescroller light-color">
+					<%- include ../shared/side_bar_admin.ejs %>
+				</div><!-- /.sidebar-left -->
+				<!-- END SIDEBAR LEFT -->
+				
+				<!-- BEGIN PAGE CONTENT -->
+				<div class="page-content">
+					<%- body %>
+					<!-- BEGIN FOOTER -->
+					<div class="fix-footer" style="z-index: 99999999;">
+						<%- include ../shared/footer.ejs %>
+					</div>
+					<!-- END FOOTER -->
+				</div><!-- /.page-content -->
+			<% } %>
+		</div><!-- /.wrapper -->
+		<!-- END PAGE CONTENT -->	
+		
+	
+		<!-- BEGIN BACK TO TOP BUTTON -->
+		<div id="back-top">
+			<a href="#top"><i class="fa fa-chevron-up"></i></a>
+		</div>
+		<%- include ../common_modal.ejs %>
+		<!-- END BACK TO TOP -->
+		<%- include ../shared/common_js %>
+		<script type="text/javascript">
+			$.ajax({url: "/check_session_status", success: function(result){
+				if(result=='no'){
+					window.location = "/access_denied";
+				}
+			}});
+		</script>
+	</body>
+</html>

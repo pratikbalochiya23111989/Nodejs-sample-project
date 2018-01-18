@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div aria-hidden="false" class="modal fade in" id="MessageModal" role="dialog" style="display: none;" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+					<h4 class="modal-title"><i class="fa fa-edit"></i> Message</h4>
+				</div>
+				<div class="message-modal-body"></div>
+				<div class="modal-footer">
+					<button class="btn btn-danger" data-dismiss="modal" type="button">Close</button>
+				</div><!-- /.modal-footer -->
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-doalog -->
+	</div>
+	<form action="/admin/policy_holder/importcsv" method="post" id="frmImportMemberCSV" enctype="multipart/form-data">
+		<div aria-hidden="false" class="modal fade in" id="frmImportPolicyHolderCSV" role="dialog" style="display: none;" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+						<h4 class="modal-title"><i class="fa fa-edit"></i> Message</h4>
+					</div>
+					<div class="message-modal-body">
+						<div class="form-group" style="margin-left: 20px;margin-top: 10px;">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<span class="btn btn-danger btn-file">
+										Import CSV&hellip; <input type="file" name="">
+									</span>
+								</span>
+								
+							</div><!-- /.input-group -->
+						</div>
+						<br> <div style="margin-left: 30px;margin-top: -14px;">OR</div> <br><button class="btn btn-danger btn-perspective" style="margin-left: 20px;" id="btn-delete-indi" onclick="window.location.href='/admin/policy_holder/add'" type="button">Add Individual Record?</button>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" type="submit">Submit</button>
+					</div><!-- /.modal-footer -->
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-doalog -->
+		</div>
+	</form>
+	
+	<form action="/member/importcsv" method="post" id="frmImportMemberCSV" enctype="multipart/form-data">
+		<div aria-hidden="false" class="modal fade in" id="ImportMessageModal" role="dialog" style="display: none;" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+						<h4 class="modal-title"><i class="fa fa-edit"></i> Message</h4>
+					</div>
+					<div class="message-modal-body">
+					<div class="form-group" style="margin-left: 20px;margin-top: 10px;">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<span class="btn btn-danger btn-file">
+									Import CSV Member&hellip; <input type="file" name="" id="btnImportMemberCSV" name="sampleFile" accept="application/x-zip-compressed,image/*">
+								</span>
+							</span>
+							
+						</div><!-- /.input-group -->
+					</div>
+					<br> <div style="margin-left: 30px;margin-top: -14px;">OR</div> <br>
+						<button class="btn btn-danger btn-perspective" id="btn-delete-indi" onclick="selectOption('individualRecord')" type="button" style="margin-left: 20px;">Add Individual Record?</button>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" type="submit">Submit</button>
+					</div><!-- /.modal-footer -->
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-doalog -->
+		</div>
+	</form>
+
+	<div aria-hidden="false" class="modal fade in" id="socialLikeUserList" role="dialog" style="display: none;" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+					<h4 class="modal-title"><i class="fa fa-thumbs-o-up"></i> <span id="socialLikeTotalUsers">10</span></h4>
+				</div>
+				<div class="message-modal-body socialLikeListBody">
+					<div class='the-box no-border full'>
+						<div class='table-responsive'>
+							<table class='table table-th-block' width='100%'>
+								<thead>
+									<tr>
+										<th width='20%'><center>Photo</center></th>
+										<th width='20%'>Role</th>
+										<th width='25%'>Name</th>
+										<th width='35%'>Created At</th>
+									</tr>
+								</thead>
+								<tbody id="displayListLikeUsers">
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-doalog -->
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+	});
+</script>
+</html>

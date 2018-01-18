@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="container-fluid">
+		<!-- Begin page heading -->
+		<h1 class="page-heading">Insurance Type</h1><!-- End page heading -->
+		<!-- Begin breadcrumb -->
+		<ol class="breadcrumb info">
+			<li>
+				<a href="/admin/dashboard/list"><i class="fa fa-home"></i></a>
+			</li>
+			<li>
+				<a href="/admin/insurance_types/list">View Insurance Type</a>
+			</li>
+			<li class="active">Edit Insurance Type</li>
+		</ol><!-- End breadcrumb -->
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Begin basic form elements -->
+				<form action="/admin/insurance_types/update" method="post" id="add_state" enctype="multipart/form-data">
+				<input type="hidden" name="insurancetype_id" id="insurancetype_id" value="<%= insurancetype._id %>">
+					<div class="the-box">
+						<div class="col-sm-12">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Title</label> <input class="form-control textbox" id='title' name="title" placeholder="" type="text" value="<%= insurancetype.title %>">
+									<p class="help-block errcolor err_title_area" id="err_title_area"><img class="validationimg" src="/img/arrow.png"><span id="lbltitleerrmsg"></span></p>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Status</label> <select class="form-control selectbox" id="status" name="status" tabindex="2">
+										<option value="" <%if (insurancetype.status=='') { %>
+										selected
+										<% } %>>--- Select Status ---</option>
+										<option value="Active" <%if (insurancetype.status=='Active') { %>
+										selected
+										<% } %>>Activate</option>
+										<option value="Inactive" <%if (insurancetype.status=='Inactive') { %>
+										selected
+										<% } %>>Deactivate</option>
+									</select>
+									<p class="help-block errcolor err_status_area" id="err_status_area"><img class="validationimg" src="/img/arrow.png"><span id="lblstatuserrmsg"></span></p>
+								</div>
+							</div>
+							</div>
+							<div class="col-sm-12">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Description</label><br> 
+									<textarea style="height: 200px !important;" rows="4" cols="56" class="form-control" name="description" id="desc"><%= insurancetype.description %></textarea>
+									<p class="help-block errcolor err_desc_area" id="err_desc_area"><img class="validationimg" src="/img/arrow.png"><span id="lbldescerrmsg"></span></p>
+								</div>
+							</div>
+							<% if(insurancetype.photo==''){ %>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input type="hidden" name="imgUpload" id="imgUpload" value="Yes">
+									<label>Photo<sup>*</sup></label>
+									<div class="form-group">
+										<div class="input-group">
+											<span class="input-group-btn"><span class="btn btn-default btn-file filebtn">Browse… <input name="file" type="file" id="photoLatest"></span></span> <input class="form-control textbox" readonly type="text">
+										</div>
+										<span class="msgformat1">
+								 		[Image Dimension Must Be 500px * 500px, Only Png, Jpg and JPEG extensions are allowed.]</span>
+										<p class="help-block errAreaPhoto"><img class="validationimg" src="/img/arrow.png"><span id="lblPhoto"></span></p>
+										<p class="help-block errAreaPhoto1"><img class="validationimg" src="/img/arrow.png"><span id="lblPhoto1"></span></p>
+									</div>
+								</div>
+							</div>
+							<% } else { %>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input type="hidden" name="imgUpload" id="imgUpload" value="No">
+									<label>Photo</label>
+									<div class="form-group">
+										<img src="<%=insurancetype.photo %>" width="150px" height="150px"><br>
+										<button class="btn btn-danger active frmbtn" onclick="cancel('/admin/insurance_types/removephoto/<%= insurancetype._id %>')" type="button" style="margin-top: 10px;width: 150px !important;">Remove</button>	
+									</div>
+								</div>
+							</div>
+							<% } %>
+						</div>
+						<div class="col-sm-12">
+						<div class="col-sm-6" style="margin-top: 19px;">
+							<div class="form-group">
+							<label></label>
+								<button class="btn btn-success active frmbtn" type='submit' onclick="return form_validate()">Save</button> <button class="btn btn-danger active frmbtn" onclick="cancel('/admin/insurance_types/list')" type='button'>Cancel</button>
+							</div>
+						</div>
+						</div>
+					<div class='clear'></div>
+					</div><!-- /.the-box -->
+				</form><!-- End basic form elements -->
+			</div><!-- /.col-sm-6 -->
+		</div><!-- /.row -->
+	</div><!-- /.container-fluid -->
+		<script type="text/javascript">
+		var _URL = window.URL;
+	$("#photoLatest").change(function (e) {
+		    var file, img;
+		    if ((file = this.files[0])) {
+		        img = new Image();
+		        img.onload = function () {
+		       
+		            if(this.width==500 && this.height==500)
+		            {
+		            	$('.msgformat1').hide();
+		    	        $('.errAreaPhoto1').hide();
+		    	         $('.errAreaPhoto').hide();
+				        return 1;
+		    	       
+		            }
+		             else
+		            {
+		            	$('.msgformat1').hide();
+		            	$('.errAreaPhoto1').show();
+		            	 $('.errAreaPhoto').hide();
+		       	        $('#lblPhoto1').html('Error while uploading.');
+				        return 0;
+		            }
+		        };
+		        img.src = _URL.createObjectURL(file);
+		    }
+		});
+	function form_validate() {  
+			var title_status =desc_status=status_state=photoLatest_status= 0;
+			var title = $('#title').val();
+			var description=$('#desc').val();
+			var status=$('#status').val();
+			var imgUpload=$('#imgUpload').val();
+			var file=$('#photoLatest').val();
+			title_status = check_empty_validation(title,'err_title_area','lbltitleerrmsg','Please enter title.');
+		    desc_status= check_empty_validation(description,'err_desc_area','lbldescerrmsg','Please enter description.');
+			status_state=check_empty_validation(status,'err_status_area','lblstatuserrmsg','Please choose status.');
+			 if(imgUpload=='Yes')
+		    {
+		    	photoLatest_status= check_photo_validation(file);
+		    }
+		    else
+		    {
+		    	photoLatest_status=1;
+		    }
+			if(title_status==0 || desc_status==0 || status_state==0 || photoLatest_status==0) 
+			{
+				return false;
+			}
+			else
+			{
+				$('#add_state').submit();
+			}
+        }
+		</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>::: DEMO :::</title>
+	<%- include ../shared/common_css %>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/plugins/datatable/js/jquery.dataTables.min.js"></script>
+	<script src="/plugins/datatable/js/bootstrap.datatable.js"></script>	
+</head>
+
+<body>
+	<!--Preloader-->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!--/Preloader-->
+    <!-- <div class="wrapper theme-4-active pimary-color-red box-layout"> -->
+    	 <div class="wrapper theme-4-active pimary-color-red">
+
+        <!-- Top Menu Items -->
+		<%- include ../shared/top_nav_admin.ejs %>
+		<!-- /Top Menu Items -->
+		
+		<!-- Left Sidebar Menu -->
+		<%- include ../shared/side_bar_admin.ejs %>
+		<!-- /Left Sidebar Menu -->
+		
+		<!-- Right Sidebar Menu -->
+		<%- include ../shared/side_bar_right_admin.ejs %>
+		<!-- /Right Sidebar Menu -->
+		
+		
+       
+		<!-- Main Content -->
+		<div class="page-wrapper">
+            <div class="container-fluid">
+				<%- body %>
+				<!-- Footer -->
+				<%- include ../shared/footer.ejs %>
+				<!-- /Footer -->
+			</div>
+		</div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+	<%- include ../common_modal.ejs %>
+	<%- include ../shared/common_js %>
+	<script type="text/javascript">
+		$.ajax({url: "/check_session_status", success: function(result){
+			if(result=='no'){
+				window.location = "/access_denied";
+			}
+		}});
+	</script>
+</body>
+
+</html>

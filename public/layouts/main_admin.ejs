@@ -1,0 +1,42 @@
+<html >
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>::: Win Win:::</title>
+	<%- include ../shared/common_css %>
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/plugins/datatable/js/jquery.dataTables.min.js"></script>
+	<script src="/plugins/datatable/js/bootstrap.datatable.js"></script>	
+</head>
+<body>
+	<!--Preloader-->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!--/Preloader-->
+	<div class="wrapper theme-1-active box-layout pimary-color-red">
+		<!-- Top Menu Items -->
+		<%- include ../shared/top_nav_admin.ejs %>
+		<!-- /Top Menu Items -->
+		
+		<!-- Left Sidebar Menu -->
+		<%- include ../shared/side_bar_admin.ejs %>
+		<!-- /Left Sidebar Menu -->
+		
+		<!-- Right Sidebar Menu -->
+		<%- include ../shared/side_bar_right_admin.ejs %>
+		<!-- /Right Sidebar Menu -->
+		<!-- Main Content -->
+		<div class="page-wrapper">
+            <div class="container-fluid pt-25">
+				<%- body %>
+				<!-- Footer -->
+				<%- include ../shared/footer.ejs %>
+				<!-- /Footer -->
+			</div>
+		</div>
+        <!-- /Main Content -->
+	</div>	
+	
+	<%- include ../shared/common_js %>
+</html>
